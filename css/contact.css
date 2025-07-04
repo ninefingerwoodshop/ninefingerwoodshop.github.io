@@ -1,0 +1,184 @@
+/* Navigation */
+
+/* Contact Page Layout */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.contact-content h1 {
+  margin-bottom: 30px;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contact-content h2 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+
+/* Contact Card */
+.contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: white;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.contact-details h3 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+}
+
+.contact-details p {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.email-link {
+  font-family: var(--font-family);
+  font-weight: 500;
+  color: #007acc;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  background: #f8f9fa;
+  border-radius: var(--border-radius);
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.email-link:hover {
+  background: #007acc;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 122, 204, 0.3);
+}
+
+/* Support Section */
+.support-section {
+  background: white;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.support-section h3 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.support-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.support-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  position: relative;
+  padding-left: 25px;
+}
+
+.support-list li:last-child {
+  border-bottom: none;
+}
+
+.support-list li::before {
+  content: "•";
+  color: #007acc;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+/* Response Time */
+.response-time {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  border-left: 4px solid #007acc;
+}
+
+.response-time p {
+  margin: 0;
+  color: #555;
+}
+
+/* Visual Section */
+.contact-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-preview {
+  background: white;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.game-preview img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.preview-text {
+  font-style: italic;
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .contact-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-icon {
+    align-self: center;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}

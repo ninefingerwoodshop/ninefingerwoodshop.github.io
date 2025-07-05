@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kromium</title>
+    <title>Nine Finger Woodshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,92 +15,382 @@
     <link rel="stylesheet" href="./css/carousel.css" />
     <link rel="stylesheet" href="./css/navigation.css" />
     <link rel="stylesheet" href="./css/app-store.css" />
+    <link rel="stylesheet" href="./css/clamp.css" />
   </head>
-  <body>
-    <nav class="navigation">
-      <div class="nav-container">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </div>
-    </nav>
+  <body class="index-page">
+    <header class="header">
+      <!-- Logo Section -->
+      <a href="#" class="logo">
+        <img src="./img/9f_good_logo.png" alt="" class="logo" />
+      </a>
 
-    <div class="container">
-      <div>
-        <h1>Welcome to Kromium</h1>
-
-        <h2>The latest iOS game from The Nine Finger Woodshop</h2>
-
-        <div class="glass">
-          <p>Kromatic - Where Colors Come to Life</p>
-          <p>
-            ​ Experience the most satisfying color puzzle on the App Store!
-            Kromatic combines intuitive drag-and-drop gameplay with mesmerizing
-            flood-fill mechanics that create beautiful cascading color
-            animations across your screen.
-          </p>
-          <p>
-            Whether you're a casual gamer seeking beautiful, relaxing
-            entertainment or a puzzle enthusiast looking for your next strategic
-            challenge, Kromatic delivers a premium gaming experience that's both
-            instantly accessible and endlessly engaging.
-          </p>
-          <p>
-            The name says it all - Kromatic brings the full spectrum of color
-            puzzle gaming to your fingertips with unprecedented visual beauty
-            and satisfying gameplay mechanics.
-          </p>
-          <p>
-            Download Kromatic today and discover why this isn't just another
-            puzzle game - it's a work of interactive art!
-          </p>
+      <!-- Dropdown Menu -->
+      <div class="dropdown" id="dropdown">
+        <button class="dropdown-button" onclick="toggleDropdown()">
+          Menu
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="dropdown-menu">
+          <a href="kromium.html" class="dropdown-item">Kromium</a>
+          <a href="wordzilla.html" class="dropdown-item">Wordzilla</a>
+          <a href="contact.html" class="dropdown-item">Contact</a>
         </div>
       </div>
+    </header>
+    <!-- <div class="header">
+      <img src="./img/9f_good_logo.png" alt="" class="logo" />
+    </div> -->
+    <div class="body">
+      <p>
+        We don’t build furniture—we build worlds. Ninefinger Woodshop is an
+        indie game studio focused on crafting unique, addictive experiences.
+        Whether you're battling across galaxies in Kromium or twisting language
+        to your will in Wordzilla, our games aim to surprise, challenge, and
+        entertain. Two hands. One mission. Endless gameplay.
+      </p>
+    </div>
 
-      <div class="images">
-        <div class="carousel-containerm glass">
-          <div class="carousel">
-            <!-- Replace these with your actual images -->
-            <div class="carousel-slide active">
-              <img src="./img/Load.png" alt="" />
-            </div>
-            <div class="carousel-slide">
-              <img src="./img/Play.png" alt="" />
-            </div>
-            <div class="carousel-slide">
-              <img src="./img/Score.png" alt="" />
-            </div>
-            <div class="carousel-slide">
-              <img src="./img/splashipad.png" alt="" />
-            </div>
-            <div class="carousel-slide">
-              <img src="./img/gameipad.png" alt="" />
-            </div>
-            <div class="carousel-slide">
-              <img src="./img/scoreipad.png" alt="" />
-            </div>
+    <div class="blogs">
+      <!-- Blog Entry 1 - Most Recent -->
+      <div class="blog">
+        <div class="blog__title">It's Going Live Soon!</div>
+        <div class="blog__date">July 5, 2025</div>
 
-            <!-- Navigation arrows -->
-            <button class="carousel-nav prev" onclick="changeSlide(-1)">
-              ‹
-            </button>
-            <button class="carousel-nav next" onclick="changeSlide(1)">
-              ›
-            </button>
-          </div>
-
-          <!-- Dot navigation -->
-          <div class="carousel-dots">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
-            <span class="dot" onclick="currentSlide(6)"></span>
-          </div>
+        <div class="blog__content clamp">
+          The moment we've all been waiting for is finally here! After months of
+          development, testing, and polishing, Wordzilla is ready to launch on
+          the App Store. Our team at Nine Finger Woodshop has poured countless
+          hours into creating the perfect word puzzle experience, and we can't
+          wait for you to dive in. Final testing has been completed across all
+          devices, the Game Center integration is working flawlessly, and our
+          three difficulty levels have been perfectly balanced. We've added coin
+          rewards, hint systems, and achievement tracking that will keep you
+          engaged for hours. The app store review process is underway, and we
+          expect approval any day now. Get ready to challenge your vocabulary,
+          compete with friends, and discover just how addictive word puzzles can
+          be. Follow us for the official launch announcement - Wordzilla is
+          coming very soon!
         </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 2 -->
+      <div class="blog">
+        <div class="blog__title">
+          Kromatic 2.0: The Color Revolution Continues!
+        </div>
+        <div class="blog__date">July 2, 2025</div>
+
+        <div class="blog__content clamp">
+          Get ready for the most exciting update yet! Kromatic 2.0 is launching
+          with incredible new features that will transform your color puzzle
+          experience. We've added dozens of new levels with innovative
+          mechanics, powerful new tools that let you create spectacular color
+          cascades, and an enhanced storyline that reveals the mysteries behind
+          the chromatic world. The graphics engine has been completely
+          overhauled for even more mesmerizing flood-fill animations that
+          respond beautifully to every touch. New challenge modes test your
+          color theory knowledge while unlocking achievements that showcase your
+          mastery. Whether you're returning to revisit favorite levels or diving
+          into brand new content, Kromatic 2.0 delivers the premium puzzle
+          experience that made the original a hit. Download the update today and
+          discover why Kromatic continues to set the standard for color puzzle
+          gaming on iOS!
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 3 -->
+      <div class="blog">
+        <div class="blog__title">
+          The Art of Color: How Kromatic Creates Visual Magic
+        </div>
+        <div class="blog__date">June 25, 2025</div>
+
+        <div class="blog__content clamp">
+          Ever wondered how Kromatic creates those mesmerizing flood-fill
+          animations that make every move feel like painting with light? Our
+          development team has spent months perfecting the visual engine that
+          brings color to life on your screen. Each tap triggers a carefully
+          choreographed cascade of hues that flows across the puzzle grid with
+          fluid precision. The color blending algorithms analyze adjacent tiles
+          in real-time, creating smooth transitions that feel natural and
+          satisfying. We've studied color theory extensively to ensure our
+          palette combinations are not only beautiful but also strategically
+          meaningful for gameplay. The drag-and-drop mechanics respond with
+          haptic feedback that makes every interaction feel tactile and
+          immediate. From the gentle glow of matching colors to the explosive
+          satisfaction of clearing large sections, every visual element is
+          designed to create moments of pure aesthetic joy. Kromatic isn't just
+          a puzzle game - it's an interactive canvas where strategy meets
+          artistry.
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 4 -->
+      <div class="blog">
+        <div class="blog__title">
+          Beta Testing Results: You've Made Wordzilla Even Better!
+        </div>
+        <div class="blog__date">June 18, 2025</div>
+
+        <div class="blog__content clamp">
+          Our closed beta testing phase has been an incredible success, and we
+          owe it all to our amazing community of testers! Over the past month,
+          hundreds of players have put Wordzilla through its paces, uncovering
+          bugs, suggesting improvements, and helping us refine the gameplay
+          experience. Based on your feedback, we've improved the hint system
+          timing, adjusted the coin reward balance, enhanced the letter
+          distribution algorithm for fairer puzzles, and added visual feedback
+          for completed words. The difficulty progression has been fine-tuned to
+          ensure smooth learning curves across all three levels. Beta testers
+          have logged over 10,000 gameplay hours collectively, and the
+          engagement metrics are beyond our wildest expectations. Thank you to
+          everyone who participated in making Wordzilla the best word game it
+          can be. Your input has been invaluable, and the final product is truly
+          a community effort!
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 5 -->
+      <div class="blog">
+        <div class="blog__title">
+          Behind the Scenes: Polishing the Perfect Word Puzzle
+        </div>
+        <div class="blog__date">May 22, 2025</div>
+
+        <div class="blog__content clamp">
+          Development on Wordzilla has entered the final polish phase, and we're
+          excited to share what's been happening behind the scenes at Nine
+          Finger Woodshop. The core game mechanics are complete, featuring our
+          unique letter-pool system that ensures every puzzle is both
+          challenging and solvable. Our algorithm analyzes thousands of word
+          combinations to create the perfect balance of difficulty and
+          satisfaction. We've implemented three distinct difficulty levels: Easy
+          focuses on 3-5 letter common words, Medium introduces longer
+          vocabulary and less familiar terms, while Hard challenges even the
+          most seasoned word enthusiasts. The visual design has been refined
+          with smooth animations, satisfying feedback, and an intuitive
+          interface that makes gameplay feel natural. Quality assurance testing
+          is ongoing with puzzles being verified by multiple team members across
+          different skill levels. Every detail matters when creating a game that
+          players will enjoy for years to come.
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 6 -->
+      <div class="blog">
+        <div class="blog__title">
+          Player Spotlight: Amazing Kromatic Achievements
+        </div>
+        <div class="blog__date">May 15, 2025</div>
+
+        <div class="blog__content clamp">
+          Our Kromatic community never ceases to amaze us with incredible
+          achievements and creative problem-solving! This month, we're
+          celebrating some outstanding accomplishments from players around the
+          world. Maria S. from Barcelona completed all 150 levels using only
+          primary colors - a feat that requires exceptional strategic thinking
+          and color theory knowledge. The Johnson family from Toronto turned
+          Kromatic into a teaching tool, using the game to help their 8-year-old
+          daughter learn about color mixing and spatial reasoning. Professional
+          artist David K. from New York credits Kromatic with improving his
+          understanding of color harmony, saying it's changed how he approaches
+          his canvas work. Speed-runner Alex M. from Tokyo set a new record by
+          clearing Level 47 in just 23 seconds using an innovative technique
+          that combines rapid drag gestures with precise timing. These
+          achievements showcase the depth and versatility that makes Kromatic
+          more than just entertainment - it's a tool for learning, creativity,
+          and community connection.
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 7 -->
+      <div class="blog">
+        <div class="blog__title">
+          Game Center Integration: Compete with Friends Worldwide
+        </div>
+        <div class="blog__date">April 15, 2025</div>
+
+        <div class="blog__content clamp">
+          We're thrilled to announce that Wordzilla will feature full Game
+          Center integration, bringing competitive word gaming to a whole new
+          level! Players will be able to compare their progress across multiple
+          leaderboards, tracking Easy, Medium, and Hard level completions
+          separately. The achievement system includes milestones for first words
+          found, level completions, coin collection targets, and hint usage
+          efficiency. Friends can challenge each other to beat high scores and
+          climb the global rankings together. The social aspect of word gaming
+          has always been important - from family Scrabble nights to newspaper
+          crossword competitions with coworkers. Wordzilla brings that
+          collaborative spirit to mobile gaming with seamless friend discovery
+          and progress sharing. Whether you're competing for the top spot or
+          just want to see how your vocabulary stacks up against your friends,
+          Game Center integration makes every word you find more meaningful and
+          every level you complete more rewarding.
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 8 -->
+      <div class="blog">
+        <div class="blog__title">
+          The Science of Satisfaction: Why Kromatic Feels So Good
+        </div>
+        <div class="blog__date">April 8, 2025</div>
+
+        <div class="blog__content clamp">
+          Why does watching colors flow and blend in Kromatic feel so incredibly
+          satisfying? The answer lies in the fascinating intersection of
+          psychology, neuroscience, and game design. Color has a profound impact
+          on human emotion and cognition - warm hues like red and orange
+          stimulate energy and excitement, while cool blues and greens promote
+          calm and focus. Kromatic leverages these natural responses by
+          carefully timing color reveals with gameplay achievements. The
+          flood-fill mechanics trigger our brain's pattern recognition systems,
+          creating micro-moments of dopamine release as we predict and observe
+          the cascading effects. Research shows that the drag-and-drop
+          interactions activate tactile memory pathways, making digital touches
+          feel more physical and meaningful. The visual feedback loop creates
+          what psychologists call "flow state" - that perfect balance between
+          challenge and ability where time seems to disappear. Every aspect of
+          Kromatic, from the gentle haptic pulses to the smooth animation
+          curves, is designed to create these moments of pure gaming zen.
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 9 -->
+      <div class="blog">
+        <div class="blog__title">
+          Behind the Scenes: Crafting the Perfect Color Puzzle
+        </div>
+        <div class="blog__date">March 12, 2025</div>
+
+        <div class="blog__content clamp">
+          Creating Kromatic has been an incredible journey of innovation and
+          artistic exploration here at Nine Finger Woodshop. Our design process
+          begins with color theory research, studying how different hues
+          interact both visually and emotionally. Each level starts as a
+          hand-drawn sketch where our artists explore flow patterns and visual
+          compositions that will translate beautifully to the digital screen.
+          The programming team then works magic with custom flood-fill
+          algorithms that make color transitions feel organic and fluid rather
+          than mechanical. We test every level extensively, ensuring that
+          solutions feel intuitive while maintaining enough challenge to keep
+          players engaged. The user interface design focuses on minimalism - we
+          want nothing to distract from the pure beauty of color in motion.
+          Sound design plays a crucial role too, with each color having its own
+          subtle audio signature that creates an unconscious connection between
+          sight and sound. Quality assurance involves not just bug testing but
+          also "joy testing" - making sure every interaction creates that
+          perfect moment of visual and tactile satisfaction.
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 10 -->
+      <div class="blog">
+        <div class="blog__title">
+          The Science of Word Games: Boosting Your Brain Power
+        </div>
+        <div class="blog__date">March 8, 2025</div>
+
+        <div class="blog__content clamp">
+          While Wordzilla is designed to be incredibly fun, we're proud that it
+          also provides genuine cognitive benefits backed by scientific
+          research. Word puzzle games have been shown to improve vocabulary
+          retention, enhance pattern recognition skills, strengthen both
+          short-term and working memory, and even help maintain mental sharpness
+          as we age. The focused concentration required for solving word puzzles
+          creates a meditative state that naturally reduces stress and anxiety.
+          Many players report feeling more relaxed and mentally refreshed after
+          puzzle sessions. The letter-counting and word-formation mechanics in
+          Wordzilla specifically exercise mathematical thinking alongside
+          linguistic skills. Regular practice with word games correlates with
+          improved reading comprehension and faster information processing. As
+          we put the finishing touches on Wordzilla, we're excited to offer a
+          game that's not just entertaining but genuinely beneficial for players
+          of all ages. Who knew improving your brain could be so much fun?
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 11 -->
+      <div class="blog">
+        <div class="blog__title">
+          Introducing Kromatic: Where Colors Come to Life
+        </div>
+        <div class="blog__date">February 1, 2025</div>
+
+        <div class="blog__content clamp">
+          Welcome to the vibrant world of Kromatic, the newest creation from
+          Nine Finger Woodshop that's about to revolutionize color puzzle gaming
+          on iOS! We've combined intuitive drag-and-drop mechanics with
+          mesmerizing flood-fill animations to create something truly special -
+          a game that's both instantly accessible and endlessly engaging.
+          Kromatic features over 150 handcrafted levels that progressively
+          introduce new mechanics and color combinations, ensuring that both
+          casual players and puzzle enthusiasts find their perfect challenge
+          level. The visual engine delivers stunning cascading animations that
+          make every move feel like painting with liquid light. Our development
+          team has spent months perfecting the touch responsiveness and visual
+          feedback to create the most satisfying color puzzle experience
+          possible. Whether you're seeking relaxing entertainment after a long
+          day or strategic challenges that test your spatial reasoning, Kromatic
+          delivers a premium gaming experience that feels more like interactive
+          art than traditional mobile gaming. Get ready to discover why this
+          isn't just another puzzle game - it's a celebration of color,
+          creativity, and pure visual joy!
+        </div>
+
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <!-- Blog Entry 12 - Oldest -->
+      <div class="blog">
+        <div class="blog__title">
+          Introducing Wordzilla: The Word Game You've Been Waiting For
+        </div>
+        <div class="blog__date">January 28, 2025</div>
+
+        <div class="blog__content clamp">
+          Welcome to the development blog for Wordzilla, the newest word puzzle
+          adventure from Nine Finger Woodshop! We're incredibly excited to share
+          our journey as we create what we believe will become your new favorite
+          word game. Wordzilla combines classic word-finding mechanics with
+          modern game design, featuring progressive difficulty levels, a smart
+          coin reward system, and engaging puzzle mechanics that keep players
+          coming back for more. Our development team has been working tirelessly
+          to craft an experience that challenges vocabulary enthusiasts while
+          remaining accessible to casual players. The core gameplay revolves
+          around finding words using a shared pool of letters, with each
+          difficulty level introducing new challenges and longer words. We'll be
+          sharing regular updates about our development progress, design
+          decisions, and the thought process behind creating puzzles that are
+          both challenging and fair. Stay tuned as we build something special
+          together - the ultimate word gaming experience is coming soon!
+        </div>
+
+        <button class="read-more-btn">Read More</button>
       </div>
     </div>
 
-    <script src="./js/carousel.js"></script>
+    <script src="./js/clamp.js"></script>
+    <script src="./js/header.js"></script>
   </body>
 </html>

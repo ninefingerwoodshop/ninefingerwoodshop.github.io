@@ -1,9 +1,41 @@
-.container {
+body {
+  background: #282828;
+  color: white;
+  padding: 24px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 80px;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 100px 1fr;
+  gap: 24px;
   grid-auto-flow: row;
-  grid-template-areas: ". .";
-  margin: 24px;
+  grid-template-areas:
+    "header header"
+    ". .";
+  line-height: 1.4;
+}
+
+img.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.blogs {
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  height: calc(100vh - 100px);
+}
+
+.blog {
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.blog__date {
+  font-size: 13px;
+  color: #797979;
 }

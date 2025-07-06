@@ -3,25 +3,455 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact - Kromium</title>
+    <title>Contact - Nine Finger Woodshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/contact.css" />
-    <link rel="stylesheet" href="./css/navigation.css" />
-    <link rel="stylesheet" href="./css/app-store.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Animated background particles */
+      .bg-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+          opacity: 0.8;
+        }
+      }
+
+      /* Navigation */
+      .navigation {
+        position: relative;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 1rem 0;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0 2rem;
+      }
+
+      .nav-link {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .nav-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      }
+
+      /* Main container */
+      .container {
+        position: relative;
+        z-index: 10;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .contact-content {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 30px;
+        padding: 4rem 3rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        animation: slideUp 0.8s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        font-family: "Luckiest Guy", cursive;
+        font-size: 3.5rem;
+        text-align: center;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.3));
+        }
+        to {
+          filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6));
+        }
+      }
+
+      h2 {
+        font-size: 2rem;
+        color: #333;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-weight: 600;
+      }
+
+      .contact-info {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .contact-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(240, 248, 255, 0.9)
+        );
+        border-radius: 20px;
+        padding: 2.5rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .contact-card:hover::before {
+        left: 100%;
+      }
+
+      .contact-icon {
+        font-size: 3rem;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        width: 100px;
+        height: 100px;
+        min-width: 100px;
+        min-height: 100px;
+        max-width: 100px;
+        max-height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        animation: bounce 2s ease-in-out infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .contact-details h3 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .contact-details p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .email-link {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.1),
+          rgba(118, 75, 162, 0.1)
+        );
+        border-radius: 25px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        transition: all 0.3s ease;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .email-link::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 23px;
+      }
+
+      .email-link::after {
+        content: attr(href);
+        position: relative;
+        z-index: 1;
+        color: inherit;
+      }
+
+      .email-link:hover {
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+      }
+
+      .email-link:hover::before {
+        opacity: 1;
+      }
+
+      .support-section {
+        background: linear-gradient(
+          135deg,
+          rgba(102, 126, 234, 0.05),
+          rgba(118, 75, 162, 0.05)
+        );
+        border-radius: 20px;
+        padding: 2.5rem;
+        border: 1px solid rgba(102, 126, 234, 0.1);
+        margin-top: 1rem;
+      }
+
+      .support-section h3 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .support-list {
+        list-style: none;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .support-list li {
+        background: white;
+        padding: 1rem 1.5rem;
+        border-radius: 15px;
+        border-left: 4px solid #667eea;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .support-list li::before {
+        content: "✨";
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #667eea;
+        color: white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+
+      .support-list li:hover {
+        transform: translateX(10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-left-color: #764ba2;
+      }
+
+      .response-time {
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+        color: white;
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        margin-top: 2rem;
+        box-shadow: 0 15px 35px rgba(245, 87, 108, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .response-time::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        animation: shimmer 3s ease-in-out infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .response-time p {
+        font-size: 1.1rem;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+        margin: 0;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        .container {
+          padding: 2rem 1rem;
+        }
+
+        .contact-content {
+          padding: 2.5rem 1.5rem;
+          border-radius: 20px;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .contact-card {
+          flex-direction: column;
+          text-align: center;
+          gap: 1.5rem;
+          padding: 2rem;
+        }
+
+        .nav-container {
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+
+        .nav-link {
+          font-size: 0.9rem;
+          padding: 0.4rem 0.8rem;
+        }
+      }
+    </style>
   </head>
   <body>
+    <!-- Animated background -->
+    <div class="bg-animation" id="bgAnimation"></div>
+
     <nav class="navigation">
       <div class="nav-container">
         <a href="index.html" class="nav-link">Home</a>
         <a href="kromium.html" class="nav-link">Kromium</a>
         <a href="wordzilla.html" class="nav-link">Wordzilla</a>
         <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
       </div>
     </nav>
 
@@ -40,9 +470,9 @@
                 Have questions about Kromium? Need support? Want to share
                 feedback?
               </p>
-              <a href="mailto:ninefingerwoodshop@gmail.com" class="email-link">
-                ninefingerwoodshop@gmail.com
-              </a>
+              <a href="mailto:ninefingerwoodshop@gmail.com" class="email-link"
+                >ninefingerwoodshop@gmail.com</a
+              >
             </div>
           </div>
 
@@ -50,7 +480,6 @@
             <div class="contact-icon">📱</div>
             <div class="contact-details">
               <h3>App Store</h3>
-
               <a
                 class="email-link"
                 href="https://apps.apple.com/us/app/kromium/id6747734910"
@@ -79,13 +508,51 @@
           </div>
         </div>
       </div>
-
-      <div class="contact-visual">
-        <div class="game-preview">
-          <img src="./img/Load.png" alt="Kromium Game Preview" />
-          <p class="preview-text">Experience the beautiful world of Kromium</p>
-        </div>
-      </div>
     </div>
+
+    <script>
+      // Create animated background particles
+      function createParticles() {
+        const bgAnimation = document.getElementById("bgAnimation");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+
+          // Random positioning and animation delay
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.top = Math.random() * 100 + "%";
+          particle.style.animationDelay = Math.random() * 6 + "s";
+          particle.style.animationDuration = Math.random() * 3 + 4 + "s";
+
+          bgAnimation.appendChild(particle);
+        }
+      }
+
+      // Initialize particles when page loads
+      document.addEventListener("DOMContentLoaded", createParticles);
+
+      // Add subtle parallax effect to contact cards
+      document.addEventListener("mousemove", (e) => {
+        const cards = document.querySelectorAll(".contact-card");
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        cards.forEach((card, index) => {
+          const xOffset = (x - 0.5) * 10 * (index + 1);
+          const yOffset = (y - 0.5) * 10 * (index + 1);
+          card.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+        });
+      });
+
+      // Reset card positions when mouse leaves window
+      document.addEventListener("mouseleave", () => {
+        const cards = document.querySelectorAll(".contact-card");
+        cards.forEach((card) => {
+          card.style.transform = "translate(0, 0)";
+        });
+      });
+    </script>
   </body>
 </html>

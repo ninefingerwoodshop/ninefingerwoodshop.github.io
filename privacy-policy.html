@@ -3,29 +3,439 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nine Finger Woodshop</title>
+    <title>Privacy Policy - Nine Finger Woodshop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/carousel.css" />
-    <link rel="stylesheet" href="./css/navigation.css" />
-    <link rel="stylesheet" href="./css/app-store.css" />
-    <link rel="stylesheet" href="./css/clamp.css" />
-    <link rel="stylesheet" href="./css/privacy-policy.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: #0a0a0a;
+        color: #fff;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      /* Matrix-style digital rain background */
+      .digital-rain {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .rain-column {
+        position: absolute;
+        top: -100%;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        color: #00ff41;
+        white-space: pre;
+        animation: fall linear infinite;
+        opacity: 0.7;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(calc(100vh + 100px));
+        }
+      }
+
+      /* Header */
+      .header {
+        position: relative;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        border-bottom: 2px solid #00ff41;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 50px;
+        filter: drop-shadow(0 0 10px #00ff41);
+      }
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-button {
+        background: linear-gradient(45deg, #00ff41, #00cc33);
+        color: #000;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: inherit;
+        box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+      }
+
+      .dropdown-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid #00ff41;
+        border-radius: 10px;
+        padding: 10px 0;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .dropdown.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 20px;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+      }
+
+      .dropdown-item:hover {
+        background: rgba(0, 255, 65, 0.1);
+        border-left-color: #00ff41;
+        transform: translateX(5px);
+      }
+
+      /* Main content */
+      .privacy-container {
+        position: relative;
+        z-index: 10;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+      }
+
+      .privacy-title {
+        font-family: "Luckiest Guy", cursive;
+        font-size: 4rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        background: linear-gradient(45deg, #00ff41, #00cc33, #00ff88);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          filter: drop-shadow(0 0 10px rgba(0, 255, 65, 0.3));
+        }
+        to {
+          filter: drop-shadow(0 0 25px rgba(0, 255, 65, 0.8));
+        }
+      }
+
+      .last-updated {
+        text-align: center;
+        color: #00ff41;
+        font-style: italic;
+        margin-bottom: 3rem;
+        font-size: 1.1rem;
+      }
+
+      /* Unique card-based layout */
+      .privacy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .privacy-card {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 65, 0.1),
+          rgba(0, 204, 51, 0.05)
+        );
+        border: 1px solid #00ff41;
+        border-radius: 20px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+      }
+
+      .privacy-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 255, 65, 0.1),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .privacy-card:hover {
+        transform: translateY(-10px) rotateX(5deg);
+        box-shadow: 0 20px 40px rgba(0, 255, 65, 0.2);
+        border-color: #00ff88;
+      }
+
+      .privacy-card:hover::before {
+        left: 100%;
+      }
+
+      .card-number {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        font-size: 4rem;
+        font-weight: bold;
+        color: rgba(0, 255, 65, 0.3);
+        font-family: "Luckiest Guy", cursive;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #00ff41;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .card-icon {
+        font-size: 1.8rem;
+        filter: drop-shadow(0 0 10px #00ff41);
+      }
+
+      .card-content {
+        line-height: 1.8;
+        color: #e0e0e0;
+      }
+
+      .card-content ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+      }
+
+      .card-content li {
+        margin-bottom: 0.8rem;
+        position: relative;
+      }
+
+      .card-content li::marker {
+        color: #00ff41;
+      }
+
+      .nested-list {
+        margin-top: 0.5rem;
+        border-left: 2px solid #00ff41;
+        padding-left: 1rem;
+        margin-left: 1rem;
+      }
+
+      /* Contact section */
+      .contact-section {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 65, 0.15),
+          rgba(0, 204, 51, 0.1)
+        );
+        border: 2px solid #00ff41;
+        border-radius: 25px;
+        padding: 3rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 255, 65, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 20s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .contact-title {
+        font-size: 2rem;
+        color: #00ff41;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-email {
+        color: #00ff41;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: bold;
+        padding: 1rem 2rem;
+        border: 2px solid #00ff41;
+        border-radius: 50px;
+        display: inline-block;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .contact-email:hover {
+        background: #00ff41;
+        color: #000;
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+      }
+
+      /* Animated progress bar */
+      .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #00ff41, #00cc33);
+        z-index: 1000;
+        transition: width 0.1s ease;
+      }
+
+      /* Interactive elements */
+      .click-counter {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0, 255, 65, 0.2);
+        border: 1px solid #00ff41;
+        border-radius: 50px;
+        padding: 10px 20px;
+        color: #00ff41;
+        font-family: "Courier New", monospace;
+        z-index: 100;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        .privacy-title {
+          font-size: 2.5rem;
+        }
+
+        .privacy-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .privacy-card {
+          padding: 1.5rem;
+        }
+
+        .header {
+          padding: 1rem;
+        }
+
+        .privacy-container {
+          padding: 2rem 1rem;
+        }
+      }
+
+      /* Special effects */
+      .glitch {
+        position: relative;
+        animation: glitch 0.3s ease-in-out infinite alternate;
+      }
+
+      @keyframes glitch {
+        0% {
+          transform: translate(0);
+        }
+        20% {
+          transform: translate(-2px, 2px);
+        }
+        40% {
+          transform: translate(-2px, -2px);
+        }
+        60% {
+          transform: translate(2px, 2px);
+        }
+        80% {
+          transform: translate(2px, -2px);
+        }
+        100% {
+          transform: translate(0);
+        }
+      }
+    </style>
   </head>
   <body class="privacy-policy">
+    <!-- Digital rain background -->
+    <div class="digital-rain" id="digitalRain"></div>
+
+    <!-- Reading progress bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Click counter -->
+    <!-- <div class="click-counter" id="clickCounter">
+      Interactions: <span id="clickCount">0</span>
+    </div> -->
+
     <header class="header">
-      <!-- Logo Section -->
       <a href="index.html" class="logo">
         <img src="./img/9f_good_logo.png" alt="" class="logo" />
       </a>
 
-      <!-- Dropdown Menu -->
       <div class="dropdown" id="dropdown">
         <button class="dropdown-button" onclick="toggleDropdown()">
           Menu
@@ -40,142 +450,275 @@
       </div>
     </header>
 
-    <div class="">
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <title>Privacy Policy</title>
-          <style>
-            body {
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                Oxygen, Ubuntu, Cantarell, sans-serif;
-              line-height: 1.6;
-              max-width: 800px;
-              margin: 0 auto;
-              padding: 20px;
-              color: #333;
-            }
-            h1 {
-              color: #2c3e50;
-              border-bottom: 2px solid #3498db;
-              padding-bottom: 10px;
-            }
-            h2 {
-              color: #34495e;
-              margin-top: 30px;
-            }
-            ul {
-              padding-left: 20px;
-            }
-            li {
-              margin-bottom: 8px;
-            }
-            .contact-email {
-              color: #3498db;
-              text-decoration: none;
-            }
-            .contact-email:hover {
-              text-decoration: underline;
-            }
-            .last-updated {
-              font-style: italic;
-              color: #7f8c8d;
-              margin-bottom: 30px;
-            }
-          </style>
-        </head>
-        <body>
-          <h1>PRIVACY POLICY FOR TAP SHIFT</h1>
-          <p class="last-updated">Last updated: June 25, 2025</p>
+    <div class="privacy-container">
+      <h1 class="privacy-title glitch">PRIVACY POLICY</h1>
+      <p class="last-updated">Last updated: June 25, 2025</p>
 
-          <h2>1. INFORMATION WE COLLECT</h2>
-          <ul>
-            <li>
-              Tap Shift does not collect, store, or share any personal
-              information from users.
-            </li>
-          </ul>
+      <div class="privacy-grid">
+        <div class="privacy-card" onclick="incrementCounter()">
+          <div class="card-number">1</div>
+          <h2 class="card-title">
+            <span class="card-icon">🔒</span>
+            INFORMATION WE COLLECT
+          </h2>
+          <div class="card-content">
+            <ul>
+              <li>
+                Our games do not collect, store, or share any personal
+                information from users.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-          <h2>2. GAME CENTER</h2>
-          <ul>
-            <li>
-              If you choose to use Game Center features:
-              <ul>
-                <li>
-                  Apple handles all Game Center data according to their privacy
-                  policy
-                </li>
-              </ul>
-            </li>
-            <li>We do not access or store your Game Center information</li>
-            <li>Leaderboards and achievements are managed by Apple</li>
-          </ul>
+        <div class="privacy-card" onclick="incrementCounter()">
+          <div class="card-number">2</div>
+          <h2 class="card-title">
+            <span class="card-icon">🎮</span>
+            GAME CENTER
+          </h2>
+          <div class="card-content">
+            <ul>
+              <li>
+                If you choose to use Game Center features:
+                <div class="nested-list">
+                  <ul>
+                    <li>
+                      Apple handles all Game Center data according to their
+                      privacy policy
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>We do not access or store your Game Center information</li>
+              <li>Leaderboards and achievements are managed by Apple</li>
+            </ul>
+          </div>
+        </div>
 
-          <h2>3. LOCAL DATA</h2>
-          <ul>
-            <li>
-              The app stores game progress locally on your device:
-              <ul>
-                <li>Game scores and achievements</li>
-                <li>Settings and preferences</li>
-                <li>This data is not transmitted to our servers</li>
-              </ul>
-            </li>
-          </ul>
+        <div class="privacy-card" onclick="incrementCounter()">
+          <div class="card-number">3</div>
+          <h2 class="card-title">
+            <span class="card-icon">💾</span>
+            LOCAL DATA
+          </h2>
+          <div class="card-content">
+            <ul>
+              <li>
+                The app stores game progress locally on your device:
+                <div class="nested-list">
+                  <ul>
+                    <li>Game scores and achievements</li>
+                    <li>Settings and preferences</li>
+                    <li>This data is not transmitted to our servers</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-          <h2>4. ANALYTICS</h2>
-          <ul>
-            <li>
-              We may use Apple's analytics to understand app performance:
-              <ul>
-                <li>Crash reports (anonymous)</li>
-                <li>Usage statistics (anonymous)</li>
-                <li>No personal information is collected</li>
-              </ul>
-            </li>
-          </ul>
+        <div class="privacy-card" onclick="incrementCounter()">
+          <div class="card-number">4</div>
+          <h2 class="card-title">
+            <span class="card-icon">📊</span>
+            ANALYTICS
+          </h2>
+          <div class="card-content">
+            <ul>
+              <li>
+                We may use Apple's analytics to understand app performance:
+                <div class="nested-list">
+                  <ul>
+                    <li>Crash reports (anonymous)</li>
+                    <li>Usage statistics (anonymous)</li>
+                    <li>No personal information is collected</li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-          <h2>5. CHILDREN'S PRIVACY</h2>
-          <ul>
-            <li>
-              Tap Shift is suitable for all ages and does not collect
-              information from children.
-            </li>
-          </ul>
+        <div class="privacy-card" onclick="incrementCounter()">
+          <div class="card-number">5</div>
+          <h2 class="card-title">
+            <span class="card-icon">👶</span>
+            CHILDREN'S PRIVACY
+          </h2>
+          <div class="card-content">
+            <ul>
+              <li>
+                Our games is suitable for all ages and does not collect
+                information from children.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-          <h2>6. CONTACT</h2>
-          <ul>
-            <li>
-              For questions about this privacy policy:
-              <ul>
-                <li>
-                  Email:
-                  <a
-                    href="mailto:ninefingerwoodshop@gmail.com"
-                    class="contact-email"
-                    >ninefingerwoodshop@gmail.com</a
-                  >
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <div class="privacy-card" onclick="incrementCounter()">
+          <div class="card-number">7</div>
+          <h2 class="card-title">
+            <span class="card-icon">🔄</span>
+            CHANGES
+          </h2>
+          <div class="card-content">
+            <ul>
+              <li>
+                We may update this policy. Check this page for the latest
+                version.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-          <h2>7. CHANGES</h2>
-          <ul>
-            <li>
-              We may update this policy. Check this page for the latest version.
-            </li>
-          </ul>
-        </body>
-      </html>
+      <div class="contact-section" onclick="incrementCounter()">
+        <h2 class="contact-title">📧 CONTACT</h2>
+        <p
+          style="
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            color: #e0e0e0;
+          "
+        >
+          For questions about this privacy policy:
+        </p>
+        <a href="mailto:ninefingerwoodshop@gmail.com" class="contact-email">
+          ninefingerwoodshop@gmail.com
+        </a>
+      </div>
     </div>
 
-    <script src="./js/clamp.js"></script>
-    <script src="./js/header.js"></script>
+    <script>
+      // Digital rain effect
+      function createDigitalRain() {
+        const rainContainer = document.getElementById("digitalRain");
+        const characters =
+          "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+
+        for (let i = 0; i < 50; i++) {
+          const column = document.createElement("div");
+          column.className = "rain-column";
+          column.style.left = Math.random() * 100 + "%";
+          column.style.animationDuration = Math.random() * 3 + 2 + "s";
+          column.style.animationDelay = Math.random() * 2 + "s";
+
+          let text = "";
+          for (let j = 0; j < 20; j++) {
+            text +=
+              characters.charAt(Math.floor(Math.random() * characters.length)) +
+              "\n";
+          }
+          column.textContent = text;
+
+          rainContainer.appendChild(column);
+        }
+      }
+
+      // Dropdown functionality
+      function toggleDropdown() {
+        const dropdown = document.getElementById("dropdown");
+        dropdown.classList.toggle("active");
+        incrementCounter();
+      }
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (event) {
+        const dropdown = document.getElementById("dropdown");
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove("active");
+        }
+      });
+
+      // Reading progress bar
+      function updateReadingProgress() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        document.getElementById("readingProgress").style.width =
+          scrollPercent + "%";
+      }
+
+      // Click counter
+      let clickCount = 0;
+      function incrementCounter() {
+        clickCount++;
+        document.getElementById("clickCount").textContent = clickCount;
+
+        // Add glitch effect occasionally
+        if (clickCount % 10 === 0) {
+          document.body.classList.add("glitch");
+          setTimeout(() => document.body.classList.remove("glitch"), 300);
+        }
+      }
+
+      // Random card animations
+      function randomCardAnimation() {
+        const cards = document.querySelectorAll(".privacy-card");
+        const randomCard = cards[Math.floor(Math.random() * cards.length)];
+        randomCard.style.transform = "scale(1.02) rotateY(5deg)";
+        setTimeout(() => {
+          randomCard.style.transform = "";
+        }, 500);
+      }
+
+      // Initialize effects
+      document.addEventListener("DOMContentLoaded", function () {
+        createDigitalRain();
+
+        // Random animations every 5 seconds
+        setInterval(randomCardAnimation, 5000);
+
+        // Track interactions
+        document.addEventListener("click", incrementCounter);
+        document.addEventListener("scroll", updateReadingProgress);
+
+        // Keyboard interactions
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            incrementCounter();
+          }
+        });
+      });
+
+      // Easter egg: Konami code
+      let konamiCode = [];
+      const konamiSequence = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "KeyB",
+        "KeyA",
+      ];
+
+      document.addEventListener("keydown", function (e) {
+        konamiCode.push(e.code);
+        if (konamiCode.length > konamiSequence.length) {
+          konamiCode.shift();
+        }
+
+        if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
+          document.body.style.filter = "hue-rotate(180deg) invert(0.1)";
+          setTimeout(() => {
+            document.body.style.filter = "";
+          }, 3000);
+          konamiCode = [];
+        }
+      });
+
+      // Auto-refresh rain
+      setInterval(() => {
+        const rainContainer = document.getElementById("digitalRain");
+        rainContainer.innerHTML = "";
+        createDigitalRain();
+      }, 30000);
+    </script>
   </body>
 </html>
